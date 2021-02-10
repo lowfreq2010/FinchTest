@@ -19,10 +19,14 @@ protocol ProductListViewModelProtocol {
 class ProductListViewModel: ProductListViewModelProtocol {
     
     private var products: [Product] = []
-    private let productModel = ProductModel()
+    private let productModel: ProductModel
     
     var callback: () -> () = {} //binding callback for refreshing view with new data
     var selectedRow: Int  = 0
+    
+    init(with model: ProductModel ) {
+        self.productModel = model
+    }
     
     // MARK: Service class objects
     
@@ -60,6 +64,20 @@ class ProductListViewModel: ProductListViewModelProtocol {
             
         })
     }
+    
+    func product(for indexPath: IndexPath) ->Product {
+        let row = indexPath.row
+        return self.products[row]
+    }
+    
+    func getProductTitle(for indexPath: IndexPath) -> String {
+        return self.product(for: indexPath).title
+    }
+    
+    func getProductDescription(for indexPath: IndexPath) -> String {
+        return self.product(for: indexPath).description
+    }
+    
     
 //    // return currency code for given row
 //    func getCurrency(for row:Int) -> String {

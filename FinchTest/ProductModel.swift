@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable {
+struct Product: Codable, Equatable {
     var title: String
     var description: String
     var image: String
@@ -36,8 +36,21 @@ class ProductModel {
     // fetch all currency data
     func getData(_ completion: @escaping ([Product]) -> ()) {
         // try to restore saved products
-        let savedProducts: [Product] = self.nsudProcessor.restore()
+        var savedProducts: [Product] = self.nsudProcessor.restore()
+        if savedProducts == [] {
+            savedProducts = self.generateTestData()
+        }
         completion(savedProducts)
+        
+    }
+    
+    func generateTestData() -> [Product] {
+        
+        var savedProducts = [Product(title: "Продукт 1", description: "aslifhasifshja.isfjaslifjsalifjlsaijflsijaflksajflksajflksaj", image: "image1.png")]
+        savedProducts.append(Product(title: "Продукт 2", description: "zx,jxvz,gdsigdsogoesglsslslsfjdslgfjdsljgfdljhgfldld", image: "image2.png"))
+        savedProducts.append(Product(title: "Продукт 3", description: "sgdwdgdsgdsgdsgddsgsdgdsgdsgs", image: "image3.png"))
+        
+        return savedProducts
         
     }
     

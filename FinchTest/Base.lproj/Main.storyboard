@@ -29,6 +29,9 @@
                     <navigationItem key="navigationItem" id="YdT-Kd-Jzi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hcl-hx-iQG"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="productList" destination="2gz-E5-t94" id="P5B-Qm-xN2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
