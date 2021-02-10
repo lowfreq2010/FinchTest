@@ -99,6 +99,7 @@
 		FCC8425C25D38B3A0029E9D1 /* FinchTest */ = {
 			isa = PBXGroup;
 			children = (
+				FCC8429B25D38F0E0029E9D1 /* UseCases */,
 				FCC8425D25D38B3A0029E9D1 /* AppDelegate.swift */,
 				FCC8425F25D38B3A0029E9D1 /* SceneDelegate.swift */,
 				FCC8426125D38B3A0029E9D1 /* ViewController.swift */,
@@ -126,6 +127,37 @@
 				FCC8428125D38B8D0029E9D1 /* Info.plist */,
 			);
 			path = FinchTestUITests;
+			sourceTree = "<group>";
+		};
+		FCC8429B25D38F0E0029E9D1 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FCC842A525D390480029E9D1 /* ProductAdd */,
+				FCC842A425D38FAD0029E9D1 /* ProductDetail */,
+				FCC842A025D38F3C0029E9D1 /* ProductList */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		FCC842A025D38F3C0029E9D1 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		FCC842A425D38FAD0029E9D1 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		FCC842A525D390480029E9D1 /* ProductAdd */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductAdd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
