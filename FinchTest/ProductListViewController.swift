@@ -111,43 +111,20 @@ extension ProductListViewController {
     
     func openDetail(with segue: UIStoryboardSegue, sender: Any?) {
             let vc = segue.destination as! ProductDetailViewController
-            // calculate name of selected currency and list of currencies to be displayed
+            // pass selected product to Detail ModelView
             if (sender is IndexPath) {
                 let sentobject = sender as? IndexPath ?? IndexPath()
                 vc.productDetailViewModel.productTitle = self.productListViewModel?.getProductTitle(for: sentobject ) ?? ""
                 vc.productDetailViewModel.productDescription = self.productListViewModel?.getProductDescription(for: sentobject) ?? ""
             }
-            
-            // pass all data to new VC
-//            vc.currencyDetailViewModel.currencyName = currencySelected  // code of currency shown on detail
-//            let rates = self.currencyListViewModel!.originalRates
-//            vc.currencyDetailViewModel.rates =  rates
-//            vc.currencyDetailViewModel.otherCurrencies = other
     }
     
     
     func addProduct(with segue: UIStoryboardSegue, sender: Any?) {
             let vc = segue.destination as! ProductDetailViewController
-            // calculate name of selected currency and list of currencies to be displayed
             if (sender is IndexPath) {
-                let sentobject = sender as? IndexPath
-//                switch section {
-//                case 0:
-//                    currencySelected = self.currencyListViewModel!.getSelectedCurrency(for: row)
-//                    other = self.currencyListViewModel!.currentList
-//                case 1:
-//                    currencySelected = self.currencyListViewModel!.getCurrency(for: row)
-//                    other = self.currencyListViewModel!.selectedList
-//                default:
-//                    break
-//                }
+                //let sentobject = sender as? IndexPath
             }
-            
-            // pass all data to new VC
-//            vc.currencyDetailViewModel.currencyName = currencySelected  // code of currency shown on detail
-//            let rates = self.currencyListViewModel!.originalRates
-//            vc.currencyDetailViewModel.rates =  rates
-//            vc.currencyDetailViewModel.otherCurrencies = other
     }
     
     

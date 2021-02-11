@@ -15,16 +15,11 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productDescription: UITextView!
     
     var productDetailViewModel: ProductDetailViewModel = ProductDetailViewModel()
-    var callback: () ->() = {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callback = { [unowned self] in
-            DispatchQueue.main.async {
-                self.configureView()
-            }
-        }
-        self.productDetailViewModel.callback = self.callback
+        self.configureView()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

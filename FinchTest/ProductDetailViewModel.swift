@@ -10,11 +10,8 @@ import UIKit
 
 class ProductDetailViewModel: NSObject {
     
-    var callback: () -> () = {} //binding callback for refreshing view with new data 
-    
     var productTitle: String = ""
     var productDescription: String = ""
     var productImage: String = ""
-    
     
 }
