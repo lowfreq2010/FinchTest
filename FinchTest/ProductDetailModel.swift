@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import UIKit
 
 struct ProductDetail {
-    var title: String
-    var description: String
-    var image: UIImage?
+    let title: String
+    let description: String
+    let image: String
 }

@@ -15,9 +15,13 @@ class ProductListViewController: UITableViewController {
         }
     }
     
+    @IBAction func addProduct(_ sender: UIBarButtonItem) {
+    }
     var callback: () ->() = {}
     
     @IBOutlet weak var productList: UITableView!
+    
+    //MARK: View Controller life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +86,6 @@ class ProductListViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
 
     
     // MARK: - Navigation
@@ -95,7 +98,20 @@ class ProductListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "toProductDetail" {
+        
+        switch segue.identifier {
+        case "toProductDetail":
+            self.openDetail(with: segue, sender: sender)
+        default:
+            self.addProduct(with: segue, sender: sender)
+        }
+    }
+}
+
+
+extension ProductListViewController {
+    
+    func openDetail(with segue: UIStoryboardSegue, sender: Any?) {
             let vc = segue.destination as! ProductDetailTableViewController
             // calculate name of selected currency and list of currencies to be displayed
             var section = 0
@@ -124,8 +140,43 @@ class ProductListViewController: UITableViewController {
 //            let rates = self.currencyListViewModel!.originalRates
 //            vc.currencyDetailViewModel.rates =  rates
 //            vc.currencyDetailViewModel.otherCurrencies = other
-        }
     }
     
-
+    
+    func addProduct(with segue: UIStoryboardSegue, sender: Any?) {
+            let vc = segue.destination as! ProductDetailTableViewController
+            // calculate name of selected currency and list of currencies to be displayed
+            var section = 0
+            var row = 0
+            var currencySelected = ""
+            var other:[String] = []
+            
+            if (sender is IndexPath) {
+                let sentobject = sender as? IndexPath
+                section = sentobject?.section ?? 0
+                row = sentobject?.row ?? 0
+//                switch section {
+//                case 0:
+//                    currencySelected = self.currencyListViewModel!.getSelectedCurrency(for: row)
+//                    other = self.currencyListViewModel!.currentList
+//                case 1:
+//                    currencySelected = self.currencyListViewModel!.getCurrency(for: row)
+//                    other = self.currencyListViewModel!.selectedList
+//                default:
+//                    break
+//                }
+            }
+            
+            // pass all data to new VC
+//            vc.currencyDetailViewModel.currencyName = currencySelected  // code of currency shown on detail
+//            let rates = self.currencyListViewModel!.originalRates
+//            vc.currencyDetailViewModel.rates =  rates
+//            vc.currencyDetailViewModel.otherCurrencies = other
+    }
+    
+    
+    
+    
+    
+    
 }
