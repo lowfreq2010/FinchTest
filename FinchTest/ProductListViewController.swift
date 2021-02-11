@@ -112,7 +112,7 @@ class ProductListViewController: UITableViewController {
 extension ProductListViewController {
     
     func openDetail(with segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as! ProductDetailTableViewController
+            let vc = segue.destination as! ProductDetailViewController
             // calculate name of selected currency and list of currencies to be displayed
             var section = 0
             var row = 0
@@ -144,7 +144,7 @@ extension ProductListViewController {
     
     
     func addProduct(with segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as! ProductDetailTableViewController
+            let vc = segue.destination as! ProductDetailViewController
             // calculate name of selected currency and list of currencies to be displayed
             var section = 0
             var row = 0
