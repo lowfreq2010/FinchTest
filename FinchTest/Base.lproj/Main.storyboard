@@ -91,6 +91,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uOE-oB-Fa7"/>
+                    <connections>
+                        <outlet property="productDescription" destination="mrD-mJ-8UZ" id="0td-k1-fqZ"/>
+                        <outlet property="productImage" destination="rvY-Wn-8uM" id="mce-Tj-5ua"/>
+                        <outlet property="productTitle" destination="Bzn-ZX-wHz" id="1mN-8k-xRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqt-jF-Kou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
