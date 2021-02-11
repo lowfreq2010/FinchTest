@@ -58,7 +58,9 @@ class ProductListViewModel: ProductListViewModelProtocol {
     func getData() {
         // ask model to load data from NSUD and prepare data for view
         self.productModel.getData({[unowned self] productList in
-            self.products = productList
+            // decode json to array of products
+            
+            self.products = self.decodeJSON(from: productList)
             // call binding callback to update the view accordingly
             self.callback()
             
@@ -78,71 +80,37 @@ class ProductListViewModel: ProductListViewModelProtocol {
         return self.product(for: indexPath).description
     }
     
+    func deleteProduct(for row: Int) -> Void {
+        if row < self.products.count {
+            
+            self.products.remove(at: row)
+            let dicArray = self.products.map { $0.convertToDictionary() }
+            let encodedJSON = self.convertToJSONString(value: dicArray)
+            self.productModel.saveData(with: encodedJSON ?? "")
+            self.callback()
+        }
+    }
     
-//    // return currency code for given row
-//    func getCurrency(for row:Int) -> String {
-//        return self.currencies[row]
-//    }
-//
-//    // return currency exchange rate for given row
-//    func getRate(for row:Int) -> Float {
-//        return self.currencyModel.originalRates["\(self.getCurrency(for: row))"]!
-//    }
-//
-//    // return selected currency code for given row
-//    func getSelectedCurrency(for row:Int) -> String {
-//        return self.selectedCurrencies[row]
-//    }
-//
-//    // return selected currency exchange rate for given row
-//    func getSelectedCurrencyRate(for row:Int) -> Float {
-//        return self.currencyModel.originalRates["\(self.getSelectedCurrency(for: row))"]!
-//    }
-//
-//
-//    func processStar(on indexPath: IndexPath) -> Void {
-//        print("Tapped on star in section: \(indexPath.section) row:\(indexPath.row)")
-//        let section = indexPath.section
-//        let row = indexPath.row
-//
-//        switch section {
-//        case 0: // remove currency from selected list
-//            self.removeFromSelected(from: row)
-//        case 1: // move currency to selected list
-//            self.moveCurrencyToSelected(from: row)
-//        default:
-//            break
-//        }
-//        self.nsudProcessor.storedValue = self.selectedCurrencies
-//        self.nsudProcessor.save()
-//    }
-//
-//    // MARK: processing append/remove to Selected list
-//
-//    func moveCurrencyToSelected(from position: Int) -> Void {
-//        let currencyName: String = self.getCurrency(for: position)
-//        if self.selectedCurrencies.count==5 {
-//            let alertController = UIAlertController(title:"", message: NSLocalizedString("NOMORETHAN5", comment: ""), preferredStyle: .alert)
-//            let close = UIAlertAction(title: NSLocalizedString("CLOSE", comment: ""), style: UIAlertAction.Style.cancel, handler: nil)
-//            alertController.addAction(close)
-//            UIApplication.shared.windows.last?.rootViewController?.present(alertController, animated: true, completion: nil)
-//        } else {
-//            self.selectedCurrencies.append(currencyName)
-//            self.currencies.remove(at: position)
-//            print("moving to Selected in row \(position) Currency is \(currencyName)")
-//            self.callback()
-//        }
-//    }
-//
-//    func removeFromSelected(from position: Int) -> Void {
-//
-//        self.selectedCurrencies.remove(at: position)
-//        self.currencies = subtractSelected()
-//        self.callback()
-//    }
-//
-//    func subtractSelected() -> [String] {
-//        return self.currencyModel.originalCurrencies.filter { !self.selectedCurrencies.contains($0) } .sorted(by: <)
-//    }
+    func convertToJSONString(value: Any) -> String? {
+        if JSONSerialization.isValidJSONObject(value) {
+            do{
+                let data = try JSONSerialization.data(withJSONObject: value, options: [])
+                if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                    return string as String
+                }
+            }catch{
+            }
+        }
+        return nil
+    }
     
+    func decodeJSON(from json: String) -> [Product] {
+        var result: [Product] = [Product(title: "test", description: "test", image: "test")]
+        if let productsData = json.data(using: .utf8),
+           let productsArray: [Product] = try? JSONDecoder().decode([Product].self, from: productsData) {
+            print(productsArray)
+            result = productsArray
+        }
+        return result
+    }
 }

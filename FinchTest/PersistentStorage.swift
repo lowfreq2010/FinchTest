@@ -9,23 +9,22 @@ import Foundation
 import UIKit
 
 class ProductListNSUD: NSObject {
-    let userDefaults: UserDefaults
-    var key: String
-    var storedValue: [Product]
+    private let userDefaults: UserDefaults
+    public var key: String
+    public var storedValue: String = ""
 
-    init(with key: String, value: [String]) {
+    init(with key: String) {
         self.userDefaults = UserDefaults.standard
         self.key = key
-        self.storedValue = []
     }
     
     func save() {
-        self.userDefaults.setValue(self.storedValue, forKey: key)
+        self.userDefaults.setValue(self.storedValue, forKey: self.key)
     }
     
-    func restore() -> [Product] {
-        guard let retValue = self.userDefaults.object(forKey: self.key) else {return []}
-        return retValue as! [Product]
+    func restore() -> String {
+        guard let retValue = self.userDefaults.object(forKey: self.key) as? String else {return ""}
+        return retValue
     }
 }
 

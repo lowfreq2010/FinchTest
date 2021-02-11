@@ -13,47 +13,48 @@ struct Product: Codable, Equatable {
     var image: String
 }
 
+extension Product {
+    func convertToDictionary() -> [String : Any] {
+        let dic: [String: Any] = ["title":self.title, "description":self.description, "image": self.image]
+        return dic
+    }
+}
+
 
 class ProductModel {
     
     // MARK: Private properties
-    private let nsudProcessor: ProductListNSUD = ProductListNSUD(with: "productList", value: [])
+    private let nsudProcessor: ProductListNSUD = ProductListNSUD(with: "productList")
     
-//    private var rates: CurrencyRate = [:] //contains all currency/exchange rate pairs
-//    private var originalList: [String] = [] // contains all currency codes that existed originally
-//    private let jsonFetcher: Fetchable
-//    private let jsonProcessor: JSONProcessor = JSONProcessor()
     
     // MARK: Public properties
-//    var originalCurrencies: [String] { get { return self.originalList }}
-//    var originalRates: CurrencyRate { get { return self.rates }}
+
     
     // MARK: Class initializers and methods
-//    init(with fetcher:Fetchable) {
-//        self.jsonFetcher = fetcher
-//    }
     
     // fetch all currency data
-    func getData(_ completion: @escaping ([Product]) -> ()) {
+    func getData(_ completion: @escaping (String) -> ()) {
         // try to restore saved products
-        var savedProducts: [Product] = self.nsudProcessor.restore()
-        if savedProducts == [] {
-            savedProducts = self.generateTestData()
+        var savedProducts = self.generateTestData()
+        let restoredData = self.nsudProcessor.restore()
+        // if nothing ia saved yet then fall back to test set of data
+        if !(restoredData == "[]") {
+            savedProducts = restoredData
         }
         completion(savedProducts)
         
     }
     
-    func generateTestData() -> [Product] {
+    func generateTestData() -> String {
         
-        var savedProducts = [Product(title: "Продукт 1", description: "aslifhasifshja.isfjaslifjsalifjlsaijflsijaflksajflksajflksaj", image: "image1.png")]
-        savedProducts.append(Product(title: "Продукт 2", description: "zx,jxvz,gdsigdsogoesglsslslsfjdslgfjdsljgfdljhgfldld", image: "image2.png"))
-        savedProducts.append(Product(title: "Продукт 3", description: "sgdwdgdsgdsgdsgddsgsdgdsgdsgs", image: "image3.png"))
-        
-        return savedProducts
+        let testJSON = "[{\"title\":\"Продукт 1\",\"image\":\"image1.png\",\"description\":\"aslifhasifshja.isfjaslifjsalifjlsaijflsijaflksajflksajflksaj\"},{\"title\":\"Продукт 2\",\"description\":\"zx,jxvz,gdsigdsogoesglsslslsfjdslgfjdsljgfdljhgfldld\",\"image\":\"image2.png\"},{\"title\":\"Продукт 3\",\"image\":\"image3.png\",\"description\":\"sgdwdgdsgdsgdsgddsgsdgdsgdsgs\"}]"
+        return testJSON
         
     }
     
-    
+    func saveData(with value: String) -> Void {
+        self.nsudProcessor.storedValue = value
+        self.nsudProcessor.save()
+    }
 }
 
