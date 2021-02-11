@@ -13,3 +13,9 @@ struct ProductAdd {
     var image: String
 }
 
+extension ProductAdd {
+    func validateProductData() -> Bool {
+        return true
+    }
+}
+

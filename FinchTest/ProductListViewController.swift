@@ -32,9 +32,9 @@ class ProductListViewController: UITableViewController {
         //set viewModel
         self.productListViewModel = ProductListViewModel(with: ProductModel())
         // bind tableview to updates in ViewModel
-        self.callback = { [unowned self] in
+        self.callback = { [weak self] in
             DispatchQueue.main.async {
-                self.productList.reloadData()
+                self?.productList.reloadData()
             }
         }
         self.productListViewModel?.callback = self.callback
@@ -121,7 +121,7 @@ extension ProductListViewController {
     
     
     func addProduct(with segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as! ProductDetailViewController
+            let vc = segue.destination as! ProductAddViewController
             if (sender is IndexPath) {
                 //let sentobject = sender as? IndexPath
             }

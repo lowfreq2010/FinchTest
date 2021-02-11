@@ -38,7 +38,7 @@ class ProductModel {
         var savedProducts = self.generateTestData()
         let restoredData = self.nsudProcessor.restore()
         // if nothing ia saved yet then fall back to test set of data
-        if !(restoredData == "[]") {
+        if !(restoredData == "") {
             savedProducts = restoredData
         }
         completion(savedProducts)

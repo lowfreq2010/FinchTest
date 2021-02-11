@@ -54,7 +54,7 @@ class ProductListViewModel: ProductListViewModelProtocol {
     
     // MARK: Convenience methods
     
-    // fetch all currency data
+    // fetch all product data
     func getData() {
         // ask model to load data from NSUD and prepare data for view
         self.productModel.getData({[unowned self] productList in
@@ -67,20 +67,20 @@ class ProductListViewModel: ProductListViewModelProtocol {
         })
     }
     
-    func product(for indexPath: IndexPath) ->Product {
+    private func product(for indexPath: IndexPath) ->Product {
         let row = indexPath.row
         return self.products[row]
     }
     
-    func getProductTitle(for indexPath: IndexPath) -> String {
+    public func getProductTitle(for indexPath: IndexPath) -> String {
         return self.product(for: indexPath).title
     }
     
-    func getProductDescription(for indexPath: IndexPath) -> String {
+    public func getProductDescription(for indexPath: IndexPath) -> String {
         return self.product(for: indexPath).description
     }
     
-    func deleteProduct(for row: Int) -> Void {
+    public func deleteProduct(for row: Int) -> Void {
         if row < self.products.count {
             
             self.products.remove(at: row)
@@ -91,7 +91,7 @@ class ProductListViewModel: ProductListViewModelProtocol {
         }
     }
     
-    func convertToJSONString(value: Any) -> String? {
+    private func convertToJSONString(value: Any) -> String? {
         if JSONSerialization.isValidJSONObject(value) {
             do{
                 let data = try JSONSerialization.data(withJSONObject: value, options: [])
@@ -104,11 +104,10 @@ class ProductListViewModel: ProductListViewModelProtocol {
         return nil
     }
     
-    func decodeJSON(from json: String) -> [Product] {
+    private func decodeJSON(from json: String) -> [Product] {
         var result: [Product] = [Product(title: "test", description: "test", image: "test")]
         if let productsData = json.data(using: .utf8),
            let productsArray: [Product] = try? JSONDecoder().decode([Product].self, from: productsData) {
-            print(productsArray)
             result = productsArray
         }
         return result
