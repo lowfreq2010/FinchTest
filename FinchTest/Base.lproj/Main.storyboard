@@ -58,12 +58,35 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="204" id="6qx-ga-1Bi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzn-ZX-wHz">
+                                <rect key="frame" x="43.5" y="343" width="327" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="327" id="gXE-de-5qn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-mJ-8UZ">
+                                <rect key="frame" x="32" y="409" width="350" height="436"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8oy-DK-elx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8oy-DK-elx" firstAttribute="bottom" secondItem="mrD-mJ-8UZ" secondAttribute="bottom" constant="17" id="5jF-Ih-k0m"/>
                             <constraint firstItem="rvY-Wn-8uM" firstAttribute="top" secondItem="8oy-DK-elx" secondAttribute="top" constant="16" id="Ka3-TN-P3l"/>
-                            <constraint firstItem="8oy-DK-elx" firstAttribute="trailing" secondItem="rvY-Wn-8uM" secondAttribute="trailing" constant="20" id="bYH-el-XWo"/>
+                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="top" secondItem="rvY-Wn-8uM" secondAttribute="bottom" constant="35" id="LYv-bi-3ft"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="centerX" secondItem="Bzn-ZX-wHz" secondAttribute="centerX" id="Mid-dM-Sbx"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="32" id="QPX-XW-TDd"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="top" secondItem="Bzn-ZX-wHz" secondAttribute="bottom" constant="37" id="UrD-lZ-s3c"/>
+                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="centerX" secondItem="8oy-DK-elx" secondAttribute="centerX" id="aMA-B7-7DU"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="trailing" secondItem="8oy-DK-elx" secondAttribute="trailing" constant="-20" id="bYH-el-XWo"/>
                             <constraint firstItem="rvY-Wn-8uM" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="20" id="jya-Go-EJS"/>
                         </constraints>
                     </view>
@@ -131,6 +154,9 @@
     </scenes>
     <resources>
         <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
