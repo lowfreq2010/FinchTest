@@ -13,6 +13,7 @@ import UIKit
 class ProductAddViewModel: NSObject {
     var productModel: ProductAddModel
     
+    
     init(with model:ProductAddModel) {
         self.productModel = model
     }

@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" id="YdT-Kd-Jzi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hcl-hx-iQG">
                             <connections>
-                                <segue destination="dE6-FZ-1u8" kind="show" identifier="toProductAdd" id="jzo-BU-UfT"/>
+                                <segue destination="dE6-FZ-1u8" kind="show" id="CBh-05-5TD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -115,23 +115,37 @@
             <point key="canvasLocation" x="2068.125" y="380.28169014084506"/>
         </scene>
         <!--Product Add View Controller-->
+        <scene sceneID="hXm-ui-8Se">
+            <objects>
+                <viewController id="Z6r-ff-hpr" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p9s-9Y-Utf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="a7V-eL-8f1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ybg-LT-med">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FDu-62-UDQ">
+                            <connections>
+                                <segue destination="cfX-4D-idO" kind="unwind" identifier="unwindToMain" unwindAction="unwind:" id="Apr-A6-YPH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Xvd-rk-aeM"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kR2-5k-72D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cfX-4D-idO" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2113" y="-407"/>
+        </scene>
+        <!--Product Add View Controller-->
         <scene sceneID="RZo-OF-wS5">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" interfaceStyle="light" id="dE6-FZ-1u8" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="dE6-FZ-1u8" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E59-YK-5T1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qc7-64-Eb4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <color key="barTintColor" systemColor="systemGray5Color"/>
-                                <items>
-                                    <navigationItem title="Title" id="llk-jp-sh9">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gUw-ll-4dU"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AGq-wm-JUg"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1za-PT-aYc">
                                 <rect key="frame" x="16" y="51" width="288" height="497"/>
                                 <subviews>
@@ -163,19 +177,17 @@
                                             <constraint firstItem="GPZ-TK-QSj" firstAttribute="width" secondItem="nvF-dx-wbv" secondAttribute="width" multiplier="0.35" id="fPd-1l-Q5l"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0T-FT-61O">
+                                    <stackView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0T-FT-61O">
                                         <rect key="frame" x="0.0" y="308.5" width="288" height="188.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Введите описание продукта" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vms-US-Dqn">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="188.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
-                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -185,15 +197,11 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kUV-mg-Sg1"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kUV-mg-Sg1" firstAttribute="trailing" secondItem="1za-PT-aYc" secondAttribute="trailing" constant="16" id="74T-79-miw"/>
-                            <constraint firstItem="qc7-64-Eb4" firstAttribute="bottom" secondItem="kUV-mg-Sg1" secondAttribute="top" id="8s9-3Q-GPM"/>
                             <constraint firstItem="1za-PT-aYc" firstAttribute="leading" secondItem="kUV-mg-Sg1" secondAttribute="leading" constant="16" id="Xs1-oj-fSs"/>
-                            <constraint firstItem="qc7-64-Eb4" firstAttribute="leading" secondItem="E59-YK-5T1" secondAttribute="leading" id="h0y-XE-UNR"/>
                             <constraint firstItem="1za-PT-aYc" firstAttribute="top" secondItem="kUV-mg-Sg1" secondAttribute="top" constant="7" id="kEW-ON-hZa"/>
                             <constraint firstItem="kUV-mg-Sg1" firstAttribute="bottom" secondItem="1za-PT-aYc" secondAttribute="bottom" constant="20" id="lIB-8t-k44"/>
-                            <constraint firstAttribute="trailing" secondItem="qc7-64-Eb4" secondAttribute="trailing" id="qq8-AO-TRb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cmc-Ja-kdD">
@@ -217,7 +225,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdV-Ln-H4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cmx-rN-yA3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2070" y="-342.25352112676057"/>
+            <point key="canvasLocation" x="2813" y="-83"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j0T-ZK-kxW">
@@ -249,12 +257,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
