@@ -8,6 +8,8 @@
 import UIKit
 
 class ProductTableviewCell: UITableViewCell {
+    
+    var isShadowConfigured: Bool = false
 
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productTitle: UILabel!
@@ -16,13 +18,34 @@ class ProductTableviewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.configureShadow()
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 3, bottom: 3, right: 3))
+    }
+}
+
+extension ProductTableviewCell {
+    
+    func configureShadow() {
+        if self.isShadowConfigured {return}
+        // add shadow on cell
+        self.backgroundColor = .clear // very important
+        self.layer.masksToBounds = false
+        self.layer.shadowOpacity = 0.23
+        self.layer.shadowRadius = 4
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowColor = UIColor.black.cgColor
+
+        // add corner radius on `contentView`
+        self.contentView.backgroundColor = .white
+        self.contentView.layer.cornerRadius = 8
+        self.isShadowConfigured = true
+    }
 }

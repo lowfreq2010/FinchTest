@@ -61,11 +61,20 @@ class ProductListViewController: UITableViewController {
         
         guard let cell = self.productList.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as? ProductTableviewCell else {return UITableViewCell()}
         
+        // cell.configureShadow()
         cell.productTitle.text = self.productListViewModel?.getProductTitle(for: indexPath)
         cell.productDescription.text = self.productListViewModel?.getProductDescription(for: indexPath)
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // this will turn on `masksToBounds` just before showing the cell
+        let radius = cell.contentView.layer.cornerRadius
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
+        cell.contentView.layer.masksToBounds = true
+    }
+    
     
     
     //MARK: Table View editing (delete/insert rows)
