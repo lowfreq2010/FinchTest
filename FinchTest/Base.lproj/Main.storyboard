@@ -52,14 +52,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-Wn-8uM">
-                                <rect key="frame" x="20" y="105" width="375.5" height="201.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="204" id="6qx-ga-1Bi"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzn-ZX-wHz">
-                                <rect key="frame" x="43.5" y="343" width="327" height="29"/>
+                                <rect key="frame" x="43.5" y="321" width="327" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="327" id="gXE-de-5qn"/>
                                 </constraints>
@@ -68,26 +62,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-mJ-8UZ">
-                                <rect key="frame" x="32" y="409" width="350" height="436"/>
+                                <rect key="frame" x="32" y="360" width="350" height="462"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-Wn-8uM">
+                                <rect key="frame" x="105" y="108" width="205.5" height="201.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="204" id="RPc-FJ-apZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8oy-DK-elx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8oy-DK-elx" firstAttribute="bottom" secondItem="mrD-mJ-8UZ" secondAttribute="bottom" constant="17" id="5jF-Ih-k0m"/>
-                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="top" secondItem="8oy-DK-elx" secondAttribute="top" constant="16" id="Ka3-TN-P3l"/>
-                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="top" secondItem="rvY-Wn-8uM" secondAttribute="bottom" constant="35" id="LYv-bi-3ft"/>
+                            <constraint firstItem="8oy-DK-elx" firstAttribute="bottom" secondItem="mrD-mJ-8UZ" secondAttribute="bottom" priority="900" constant="40" id="5jF-Ih-k0m"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="top" secondItem="8oy-DK-elx" secondAttribute="top" constant="19" id="Ekf-sE-vHL"/>
                             <constraint firstItem="mrD-mJ-8UZ" firstAttribute="centerX" secondItem="Bzn-ZX-wHz" secondAttribute="centerX" id="Mid-dM-Sbx"/>
+                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="top" secondItem="rvY-Wn-8uM" secondAttribute="bottom" constant="10" id="Mrt-Bt-sXR"/>
                             <constraint firstItem="mrD-mJ-8UZ" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="32" id="QPX-XW-TDd"/>
-                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="top" secondItem="Bzn-ZX-wHz" secondAttribute="bottom" constant="37" id="UrD-lZ-s3c"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="top" secondItem="Bzn-ZX-wHz" secondAttribute="bottom" constant="10" id="UrD-lZ-s3c"/>
                             <constraint firstItem="Bzn-ZX-wHz" firstAttribute="centerX" secondItem="8oy-DK-elx" secondAttribute="centerX" id="aMA-B7-7DU"/>
-                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="trailing" secondItem="8oy-DK-elx" secondAttribute="trailing" constant="-20" id="bYH-el-XWo"/>
-                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="20" id="jya-Go-EJS"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="centerX" secondItem="Bzn-ZX-wHz" secondAttribute="centerX" id="hyb-c7-rXi"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="105" id="jkE-US-pfZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uOE-oB-Fa7"/>
@@ -125,11 +125,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="cmc-Ja-kdD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8zT-gu-tnl"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1hr-NN-u7H"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8zT-gu-tnl">
+                            <connections>
+                                <segue destination="cmx-rN-yA3" kind="unwind" identifier="addCancel" unwindAction="unwind:" id="tQb-w2-Sgy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1hr-NN-u7H">
+                            <connections>
+                                <segue destination="cmx-rN-yA3" kind="unwind" identifier="addSave" unwindAction="unwind:" id="Hag-kP-AKv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdV-Ln-H4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cmx-rN-yA3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2070" y="-342"/>
         </scene>
