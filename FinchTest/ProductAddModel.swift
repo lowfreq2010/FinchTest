@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct ProductAdd {
+struct ProductAddModel {
     var title: String
     var description: String
     var image: String
 }
 
-extension ProductAdd {
+extension ProductAddModel {
     func isAllEmpty() -> Bool {
-        var retVal  = true
+        var retVal  = false
         let checkString: String = self.title + self.description + self.image
         if checkString == "" {
-            retVal = false
+            retVal = true
         }
         return retVal
     }

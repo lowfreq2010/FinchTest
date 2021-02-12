@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B7680F5625D54C1900B5F8A1 /* ProductAddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7680F5525D54C1900B5F8A1 /* ProductAddModel.swift */; };
+		B7689E4925D6A6CA001AAD94 /* ProductAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7689E4825D6A6CA001AAD94 /* ProductAddViewModel.swift */; };
 		B776EACE25D3B8F900169465 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B776EACD25D3B8F900169465 /* ProductModel.swift */; };
 		B776EAD625D3B97500169465 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B776EAD525D3B97500169465 /* ProductViewModel.swift */; };
 		B776EADC25D3BA9300169465 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B776EADB25D3BA9300169465 /* PersistentStorage.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		B7680F5525D54C1900B5F8A1 /* ProductAddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddModel.swift; sourceTree = "<group>"; };
+		B7689E4825D6A6CA001AAD94 /* ProductAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddViewModel.swift; sourceTree = "<group>"; };
 		B776EACD25D3B8F900169465 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		B776EAD525D3B97500169465 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		B776EADB25D3BA9300169465 /* PersistentStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		B7680F5425D54B7900B5F8A1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B7689E4825D6A6CA001AAD94 /* ProductAddViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				B7E5433325D410A100071728 /* ProductDetailViewModel.swift in Sources */,
 				FCC8426025D38B3A0029E9D1 /* SceneDelegate.swift in Sources */,
 				B7E5432625D40E8800071728 /* ProductDetailTableViewController.swift in Sources */,
+				B7689E4925D6A6CA001AAD94 /* ProductAddViewModel.swift in Sources */,
 				B776EACE25D3B8F900169465 /* ProductModel.swift in Sources */,
 				B776EAE925D3C2E900169465 /* ProductListViewController.swift in Sources */,
 				B7680F5625D54C1900B5F8A1 /* ProductAddModel.swift in Sources */,

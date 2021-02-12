@@ -117,7 +117,7 @@
         <!--Product Add View Controller-->
         <scene sceneID="RZo-OF-wS5">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="dE6-FZ-1u8" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" interfaceStyle="light" id="dE6-FZ-1u8" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E59-YK-5T1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,12 +199,12 @@
                     <navigationItem key="navigationItem" id="cmc-Ja-kdD">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8zT-gu-tnl">
                             <connections>
-                                <segue destination="cmx-rN-yA3" kind="unwind" identifier="addCancel" unwindAction="unwind:" id="tQb-w2-Sgy"/>
+                                <segue destination="cmx-rN-yA3" kind="unwind" identifier="unwindToMain" unwindAction="unwind:" id="tQb-w2-Sgy"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1hr-NN-u7H">
                             <connections>
-                                <segue destination="cmx-rN-yA3" kind="unwind" identifier="addSave" unwindAction="unwind:" id="Hag-kP-AKv"/>
+                                <action selector="saveProduct:" destination="dE6-FZ-1u8" id="AZj-Ko-j6a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
