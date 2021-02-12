@@ -14,8 +14,13 @@ struct ProductAdd {
 }
 
 extension ProductAdd {
-    func validateProductData() -> Bool {
-        return true
+    func isAllEmpty() -> Bool {
+        var retVal  = true
+        let checkString: String = self.title + self.description + self.image
+        if checkString == "" {
+            retVal = false
+        }
+        return retVal
     }
 }
 
