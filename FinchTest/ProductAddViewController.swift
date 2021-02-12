@@ -9,6 +9,11 @@ import UIKit
 
 class ProductAddViewController: UIViewController {
 
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productTitle: UITextField!
+    @IBOutlet weak var productDescription: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
