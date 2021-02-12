@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gKs-J1-qUf">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,15 +14,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ProductListViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2gz-E5-t94">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productListCell" editingAccessoryType="disclosureIndicator" id="z8L-dj-KKh" customClass="ProductTableviewCell" customModule="FinchTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z8L-dj-KKh" id="3js-h7-DWE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -49,45 +49,47 @@
             <objects>
                 <viewController id="Db8-2o-OyT" customClass="ProductDetailViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eDX-VH-d2H">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzn-ZX-wHz">
-                                <rect key="frame" x="43.5" y="321" width="327" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="327" id="gXE-de-5qn"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzn-ZX-wHz">
+                                <rect key="frame" x="48" y="234" width="224" height="110.5"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-mJ-8UZ">
-                                <rect key="frame" x="32" y="360" width="350" height="462"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-mJ-8UZ">
+                                <rect key="frame" x="16" y="363.5" width="288" height="170.5"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rvY-Wn-8uM">
-                                <rect key="frame" x="105" y="108" width="205.5" height="201.5"/>
+                                <rect key="frame" x="85" y="57" width="151.5" height="147.5"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="204" id="RPc-FJ-apZ"/>
+                                    <constraint firstAttribute="height" constant="150" id="rnb-3h-pxe"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8oy-DK-elx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8oy-DK-elx" firstAttribute="bottom" secondItem="mrD-mJ-8UZ" secondAttribute="bottom" priority="900" constant="40" id="5jF-Ih-k0m"/>
-                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="top" secondItem="8oy-DK-elx" secondAttribute="top" constant="19" id="Ekf-sE-vHL"/>
-                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="centerX" secondItem="Bzn-ZX-wHz" secondAttribute="centerX" id="Mid-dM-Sbx"/>
-                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="top" secondItem="rvY-Wn-8uM" secondAttribute="bottom" constant="10" id="Mrt-Bt-sXR"/>
-                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="32" id="QPX-XW-TDd"/>
-                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="top" secondItem="Bzn-ZX-wHz" secondAttribute="bottom" constant="10" id="UrD-lZ-s3c"/>
-                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="centerX" secondItem="8oy-DK-elx" secondAttribute="centerX" id="aMA-B7-7DU"/>
-                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="centerX" secondItem="Bzn-ZX-wHz" secondAttribute="centerX" id="hyb-c7-rXi"/>
-                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="105" id="jkE-US-pfZ"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="width" secondItem="eDX-VH-d2H" secondAttribute="width" multiplier="0.9" id="4Zi-3g-tQJ"/>
+                            <constraint firstItem="8oy-DK-elx" firstAttribute="trailing" secondItem="mrD-mJ-8UZ" secondAttribute="trailing" constant="16" id="FbZ-wW-fM6"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="85" id="TbW-u8-R5i"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="leading" secondItem="8oy-DK-elx" secondAttribute="leading" constant="16" id="Uh8-Vp-VwZ"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="top" secondItem="Bzn-ZX-wHz" secondAttribute="bottom" constant="19" id="iCy-fi-tYv"/>
+                            <constraint firstItem="8oy-DK-elx" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="mrD-mJ-8UZ" secondAttribute="bottom" constant="34" id="iXP-ci-e8G"/>
+                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="top" secondItem="rvY-Wn-8uM" secondAttribute="bottom" constant="28" id="ihw-Uc-HBL"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="top" secondItem="8oy-DK-elx" secondAttribute="top" constant="12" id="m4M-yn-VbY"/>
+                            <constraint firstItem="rvY-Wn-8uM" firstAttribute="centerX" secondItem="Bzn-ZX-wHz" secondAttribute="centerX" id="nqm-SM-UB5"/>
+                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="centerX" secondItem="8oy-DK-elx" secondAttribute="centerX" id="oOv-g8-WYg"/>
+                            <constraint firstItem="Bzn-ZX-wHz" firstAttribute="width" secondItem="eDX-VH-d2H" secondAttribute="width" multiplier="0.7" id="wJ9-16-ktU"/>
+                            <constraint firstItem="mrD-mJ-8UZ" firstAttribute="height" secondItem="eDX-VH-d2H" secondAttribute="height" multiplier="0.3" id="x70-do-bOU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uOE-oB-Fa7"/>
@@ -99,18 +101,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqt-jF-Kou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2069.5652173913045" y="380.35714285714283"/>
+            <point key="canvasLocation" x="2068.125" y="380.28169014084506"/>
         </scene>
         <!--Product Add View Controller-->
         <scene sceneID="RZo-OF-wS5">
             <objects>
                 <viewController modalTransitionStyle="partialCurl" id="dE6-FZ-1u8" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E59-YK-5T1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qc7-64-Eb4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="systemGray5Color"/>
                                 <items>
@@ -148,7 +150,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gKs-J1-qUf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zck-sT-0eC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -166,11 +168,20 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
