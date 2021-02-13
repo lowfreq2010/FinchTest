@@ -80,6 +80,10 @@ class ProductListViewModel: ProductListViewModelProtocol {
         return self.product(for: indexPath).description
     }
     
+    public func getProductImageName(for indexPath: IndexPath) -> String? {
+        return self.product(for: indexPath).image
+    }
+    
     public func deleteProduct(for row: Int) -> Void {
         if row < self.products.count {
             

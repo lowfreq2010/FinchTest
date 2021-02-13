@@ -18,6 +18,7 @@
 		B7E5432625D40E8800071728 /* ProductDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5432525D40E8800071728 /* ProductDetailTableViewController.swift */; };
 		B7E5432E25D40FAE00071728 /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5432D25D40FAE00071728 /* ProductDetailModel.swift */; };
 		B7E5433325D410A100071728 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5433225D410A100071728 /* ProductDetailViewModel.swift */; };
+		FC3F52B525D7C2A4009DDCBB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3F52B425D7C2A4009DDCBB /* ImageService.swift */; };
 		FC84177B25D5C5BA0094E0EE /* ProductAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84177A25D5C5BA0094E0EE /* ProductAddViewController.swift */; };
 		FCC8425E25D38B3A0029E9D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8425D25D38B3A0029E9D1 /* AppDelegate.swift */; };
 		FCC8426025D38B3A0029E9D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8425F25D38B3A0029E9D1 /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		B7E5432525D40E8800071728 /* ProductDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewController.swift; sourceTree = "<group>"; };
 		B7E5432D25D40FAE00071728 /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
 		B7E5433225D410A100071728 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		FC3F52B425D7C2A4009DDCBB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FC84177A25D5C5BA0094E0EE /* ProductAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddViewController.swift; sourceTree = "<group>"; };
 		FCC8425A25D38B3A0029E9D1 /* FinchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC8425D25D38B3A0029E9D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				B776EADB25D3BA9300169465 /* PersistentStorage.swift */,
+				FC3F52B425D7C2A4009DDCBB /* ImageService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				B776EAD625D3B97500169465 /* ProductViewModel.swift in Sources */,
 				FC84177B25D5C5BA0094E0EE /* ProductAddViewController.swift in Sources */,
 				B7E5432E25D40FAE00071728 /* ProductDetailModel.swift in Sources */,
+				FC3F52B525D7C2A4009DDCBB /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
