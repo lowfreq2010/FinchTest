@@ -115,34 +115,10 @@
             <point key="canvasLocation" x="2068.125" y="380.28169014084506"/>
         </scene>
         <!--Product Add View Controller-->
-        <scene sceneID="hXm-ui-8Se">
-            <objects>
-                <viewController id="Z6r-ff-hpr" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="p9s-9Y-Utf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="a7V-eL-8f1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ybg-LT-med">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FDu-62-UDQ">
-                            <connections>
-                                <segue destination="cfX-4D-idO" kind="unwind" identifier="unwindToMain" unwindAction="unwind:" id="Apr-A6-YPH"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Xvd-rk-aeM"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kR2-5k-72D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="cfX-4D-idO" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2113" y="-407"/>
-        </scene>
-        <!--Product Add View Controller-->
         <scene sceneID="RZo-OF-wS5">
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" id="dE6-FZ-1u8" customClass="ProductAddViewController" customModule="FinchTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="E59-YK-5T1">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="E59-YK-5T1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -152,7 +128,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y7v-fb-yGm">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="223.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="p89-wF-SYU">
+                                            <imageView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="p89-wF-SYU">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="223.5"/>
                                             </imageView>
                                         </subviews>
@@ -162,14 +138,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPZ-TK-QSj">
                                                 <rect key="frame" x="0.0" y="0.0" width="101" height="45"/>
-                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="введите текст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsf-mg-31j">
+                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="введите текст" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsf-mg-31j">
                                                 <rect key="frame" x="111" y="0.0" width="177" height="45"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -180,11 +155,13 @@
                                     <stackView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0T-FT-61O">
                                         <rect key="frame" x="0.0" y="308.5" width="288" height="188.5"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Введите описание продукта" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vms-US-Dqn">
+                                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Введите описание продукта" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vms-US-Dqn">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="188.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -197,6 +174,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kUV-mg-Sg1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kUV-mg-Sg1" firstAttribute="trailing" secondItem="1za-PT-aYc" secondAttribute="trailing" constant="16" id="74T-79-miw"/>
                             <constraint firstItem="1za-PT-aYc" firstAttribute="leading" secondItem="kUV-mg-Sg1" secondAttribute="leading" constant="16" id="Xs1-oj-fSs"/>
@@ -225,7 +203,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdV-Ln-H4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cmx-rN-yA3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2813" y="-83"/>
+            <point key="canvasLocation" x="2068" y="-343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j0T-ZK-kxW">
@@ -257,9 +235,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -25,4 +25,9 @@ class ProductAddViewModel: NSObject {
         }
         return retVal
     }
+    
+    func save() -> Void {
+        //TODO: pass all values to model and let it care abount actual saving
+        
+    }
 }
