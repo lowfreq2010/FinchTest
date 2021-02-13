@@ -7,7 +7,19 @@
 
 import UIKit
 
-class ProductAddViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class ProductAddViewController: UIViewController {
+    var statusBarOrientation: UIInterfaceOrientation? {
+        get {
+            guard let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation else {
+                #if DEBUG
+                fatalError("No UIInterfaceOrientation from a valid windowScene")
+                #else
+                return nil
+                #endif
+            }
+            return orientation
+        }
+    }
     
     let productAddViewModel: ProductAddViewModel = ProductAddViewModel(with: ProductAddModel(title: "", description: "", image: ""))
     var isViewMovedUp: Bool = false
@@ -32,16 +44,22 @@ class ProductAddViewController: UIViewController, UITextFieldDelegate, UITextVie
         self.productTitle.delegate = self
         self.productDescription.delegate = self
     }
-    
-    //MARK: TextField/TextView delegate functions
-    
+}
+
+//MARK: TextField delegate functions
+extension ProductAddViewController: UITextFieldDelegate {
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         animateViewMoving(up: true, moveValue: 200)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         animateViewMoving(up: false, moveValue: 200)
     }
-    
+}
+
+//MARK: TextView delegate functions
+extension ProductAddViewController: UITextViewDelegate {
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         animateViewMoving(up: true, moveValue: 200)
     }
@@ -51,14 +69,17 @@ class ProductAddViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
 }
 
+//MARK: common functions
 extension ProductAddViewController {
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){
         if (self.isViewMovedUp && up) {
             return
         }
+        // check the orientation of controller to cut movement if it is in landscape
+        let move = (self.statusBarOrientation?.isPortrait ?? false ? moveValue : moveValue/2)
         let movementDuration:TimeInterval = 0.3
-        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        let movement:CGFloat = ( up ? -move : move)
         
         UIView.animate(withDuration: movementDuration) {
             self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
