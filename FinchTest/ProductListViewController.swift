@@ -129,6 +129,7 @@ extension ProductListViewController {
                 let sentobject = sender as? IndexPath ?? IndexPath()
                 vc.productDetailViewModel.productTitle = self.productListViewModel?.getProductTitle(for: sentobject ) ?? ""
                 vc.productDetailViewModel.productDescription = self.productListViewModel?.getProductDescription(for: sentobject) ?? ""
+                vc.productDetailViewModel.productImage = self.productListViewModel?.getProductImageName(for: sentobject) ?? "image1"
             }
     }
     

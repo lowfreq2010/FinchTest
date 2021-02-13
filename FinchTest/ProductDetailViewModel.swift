@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-class ProductDetailViewModel: NSObject {
-    
+struct ProductDetailViewModel {
     var productTitle: String = ""
     var productDescription: String = ""
     var productImage: String = ""
-    
 }
