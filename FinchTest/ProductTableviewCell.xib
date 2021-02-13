@@ -21,7 +21,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Dc4-zA-XLG">
                         <rect key="frame" x="10" y="3" width="55" height="55"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="g55-am-rXI"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="g55-am-rXI"/>
                             <constraint firstAttribute="width" secondItem="Dc4-zA-XLG" secondAttribute="height" multiplier="1:1" id="sVj-61-1d1"/>
                         </constraints>
                     </imageView>
@@ -48,6 +48,7 @@
                     <constraint firstItem="lPV-Md-N1O" firstAttribute="leading" secondItem="Dc4-zA-XLG" secondAttribute="trailing" constant="16" id="JPQ-Hl-6ub"/>
                     <constraint firstItem="Dc4-zA-XLG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="OWy-7I-wHo"/>
                     <constraint firstAttribute="bottom" secondItem="NAL-3o-HiK" secondAttribute="bottom" constant="11" id="Y7o-FP-Gom"/>
+                    <constraint firstItem="Dc4-zA-XLG" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.171875" id="qw2-Nb-BS9"/>
                     <constraint firstItem="Dc4-zA-XLG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="u7N-WP-QH6"/>
                     <constraint firstItem="lPV-Md-N1O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="xMC-PJ-2RM"/>
                 </constraints>
