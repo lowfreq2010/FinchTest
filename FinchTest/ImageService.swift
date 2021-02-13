@@ -17,9 +17,9 @@ extension UIColor {
     }
 }
 
-class ImageService: NSObject {
+final class ImageService: NSObject {
     
-    func drawRectangle(with width:Int, height: Int) -> UIImage? {
+    private static func drawRectangle(with width:Int, height: Int) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
 
         let img =  renderer.image { ctx in
@@ -36,7 +36,7 @@ class ImageService: NSObject {
         return img
     }
     
-    func saveImage(from image: UIImage?, to filename: String) -> Void {
+    private static func saveImage(from image: UIImage?, to filename: String) -> Void {
         
         guard let image = image else {return}
         let imageData = image.pngData()
@@ -44,19 +44,21 @@ class ImageService: NSObject {
         try? imageData?.write(to: filename)
     }
     
-    func getDocumentsDirectory() -> URL {
+    private static func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
     
-    func generateRandomImage(with name: String, width: Int, height: Int) -> Void {
+    //MARK: Public API methods
+    
+    public static func generateRandomImage(with name: String, width: Int, height: Int) -> Void {
         
         let image: UIImage? = self.drawRectangle(with: width, height: height)
         saveImage(from: image, to: name)
 
     }
     
-    func getImageFromDocuments(by name: String) ->UIImage? {
+    public static func getImageFromDocuments(by name: String) ->UIImage? {
         
         let documentPath = getDocumentsDirectory()
         let imageURL = URL(fileURLWithPath: documentPath.absoluteString).appendingPathComponent("\(name).png")

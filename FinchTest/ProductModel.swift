@@ -49,9 +49,8 @@ class ProductModel {
         
         let testJSON = "[{\"title\":\"Продукт 1\",\"image\":\"image1\",\"description\":\"aslifhasifshja.isfjaslifjsalifjlsaijflsijaflksajflksajflksaj\"},{\"title\":\"Продукт 2\",\"description\":\"zx,jxvz,gdsigdsogoesglsslslsfjdslgfjdsljgfdljhgfldld\",\"image\":\"image2\"},{\"title\":\"Продукт 3\",\"image\":\"image3\",\"description\":\"sgdwdgdsgdsgdsgddsgsdgdsgdsgs\"},{\"title\":\"Продукт 4\",\"image\":\"image4\",\"description\":\"sgdwdgdsgdsgdsgddsgsdgdsgdsgs\"},{\"title\":\"Продукт 5\",\"image\":\"image5\",\"description\":\"sgdwdgdsgdsgdsgddsgsdgdsgdsgs\"}]"
         
-        let imageService = ImageService()
         for n in 1...5 {
-            imageService.generateRandomImage(with: "image\(n)", width: 512, height: 512)
+            ImageService.generateRandomImage(with: "image\(n)", width: 512, height: 512)
         }
         return testJSON
         

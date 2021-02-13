@@ -15,8 +15,6 @@ class ProductListViewController: UITableViewController {
         }
     }
     
-    let imageService: ImageService = ImageService()
-    
     var callback: () ->() = {}
     
     @IBOutlet weak var productList: UITableView!
@@ -67,7 +65,7 @@ class ProductListViewController: UITableViewController {
         cell.productTitle.text = self.productListViewModel?.getProductTitle(for: indexPath)
         cell.productDescription.text = self.productListViewModel?.getProductDescription(for: indexPath)
         let imageName = self.productListViewModel?.getProductImageName(for: indexPath)
-        cell.productImage.image = self.imageService.getImageFromDocuments(by: imageName ?? "image\(indexPath.row)")
+        cell.productImage.image = ImageService.getImageFromDocuments(by: imageName ?? "image\(indexPath.row)")
         
         return cell
     }
@@ -113,8 +111,11 @@ class ProductListViewController: UITableViewController {
         switch segue.identifier {
         case "toProductDetail":
             self.openDetail(with: segue, sender: sender)
-        default:
+        case "toProductAdd":
             self.addProduct(with: segue, sender: sender)
+        case "unwindToMain":
+            print("unwinded back")
+        default: break
         }
     }
 }

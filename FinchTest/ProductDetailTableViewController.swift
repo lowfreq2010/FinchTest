@@ -15,7 +15,6 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productDescription: UITextView!
     
     var productDetailViewModel: ProductDetailViewModel = ProductDetailViewModel()
-    var imageService: ImageService = ImageService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,7 @@ class ProductDetailViewController: UIViewController {
         
         self.productTitle.text = self.productDetailViewModel.productTitle
         self.productDescription.text = self.productDetailViewModel.productDescription
-        self.productImage.image = self.imageService.getImageFromDocuments(by: self.productDetailViewModel.productImage)
+        self.productImage.image = ImageService.getImageFromDocuments(by: self.productDetailViewModel.productImage)
         
     }
 }

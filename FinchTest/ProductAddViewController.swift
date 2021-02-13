@@ -44,6 +44,14 @@ class ProductAddViewController: UIViewController {
         self.productTitle.delegate = self
         self.productDescription.delegate = self
     }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        print("unwinding")
+    }
 }
 
 //MARK: TextField delegate functions
@@ -65,12 +73,8 @@ extension ProductAddViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        animateViewMoving(up: true, moveValue: 200)
+        animateViewMoving(up: false, moveValue: 200)
     }
-}
-
-//MARK: common functions
-extension ProductAddViewController {
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){
         if (self.isViewMovedUp && up) {
@@ -86,6 +90,10 @@ extension ProductAddViewController {
         }
         self.isViewMovedUp = up
     }
+}
+
+//MARK: common functions
+extension ProductAddViewController {
     
     func presentAlert() -> Void {
         let alert = UIAlertController(title: "Внимание", message: "Пожалуйста, заполните все поля и выберите фото продукта", preferredStyle: .alert)
@@ -98,5 +106,4 @@ extension ProductAddViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
     }
-    
 }
