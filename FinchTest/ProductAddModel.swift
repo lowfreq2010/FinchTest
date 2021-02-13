@@ -16,7 +16,7 @@ struct ProductAddModel {
 extension ProductAddModel {
     func isAllEmpty() -> Bool {
         var retVal  = false
-        let checkString: String = self.title. + self.description + self.image
+        let checkString: String = self.title.trimmingCharacters(in: .whitespacesAndNewlines) + self.description.trimmingCharacters(in: .whitespacesAndNewlines) + self.image.trimmingCharacters(in: .whitespacesAndNewlines)
         if checkString == "" {
             retVal = true
         }

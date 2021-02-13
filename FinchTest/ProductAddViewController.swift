@@ -22,11 +22,19 @@ class ProductAddViewController: UIViewController {
     }
     
     let productAddViewModel: ProductAddViewModel = ProductAddViewModel(with: ProductAddModel(title: "", description: "", image: ""))
+    
     var isViewMovedUp: Bool = false
 
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productTitle: UITextField!
-    @IBOutlet weak var productDescription: UITextView!
+    @IBOutlet weak var productDescription: UITextView! {
+        didSet {
+            productDescription.layer.cornerRadius = 5
+            productDescription.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+            productDescription.layer.borderWidth = 0.5
+            productDescription.clipsToBounds = true
+        }
+    }
     
     @IBAction func saveProduct(_ sender: UIBarButtonItem) {
 

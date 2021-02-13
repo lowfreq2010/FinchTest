@@ -44,7 +44,7 @@ extension ProductTableviewCell {
         self.layer.shadowColor = UIColor.black.cgColor
 
         // add corner radius on `contentView`
-        self.contentView.backgroundColor = .white
+        self.contentView.backgroundColor = .systemBackground
         self.contentView.layer.cornerRadius = 8
         self.isShadowConfigured = true
     }

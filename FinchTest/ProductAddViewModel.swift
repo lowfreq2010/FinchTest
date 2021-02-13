@@ -40,9 +40,6 @@ class ProductAddViewModel: NSObject {
         }
     }
     
-    
-    
-    
     init(with model:ProductAddModel) {
         self.productModel = model
     }
