@@ -38,13 +38,12 @@ struct ProductAddModel {
 extension ProductAddModel {
     
     mutating func validateInput() {
-        let trimmedData: [String] = [title, description, image]
-            .map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})
-        let counts: [Bool] = trimmedData.map({$0.count}).map({$0>0})
+        let trimmedData: [String] = [title, description, image].map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})
+        let counts: [Bool] = trimmedData
+            .map({$0.count})
+            .map({$0>0})
         guard let firstVal = counts.first else {return}
-        let validated = counts.reduce(firstVal, {(result: Bool, nextItem: Bool) -> Bool in result && nextItem})
-        //let charsCount = trimmedData.reduce(0, {(result: Int, nextItem: String) -> Int in result + nextItem.count})
-        self.isDataValid = validated
+        self.isDataValid = counts.reduce(firstVal, {(result: Bool, nextItem: Bool) -> Bool in result && nextItem})
     }
 }
 

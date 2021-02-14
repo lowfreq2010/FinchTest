@@ -35,13 +35,13 @@ class ProductModel {
     // fetch all currency data
     func getData(_ completion: @escaping (String) -> ()) {
         // try to restore saved products
-        var savedProducts = self.generateTestData()
         let restoredData = self.nsudProcessor.restore()
         // if nothing ia saved yet then fall back to test set of data
-        if !(restoredData == "") {
-            savedProducts = restoredData
-        }
-        completion(savedProducts)
+//        if !(restoredData == "") {
+//            let savedProducts = self.generateTestData()
+//            savedProducts = restoredData
+//        }
+        completion(restoredData)
         
     }
     

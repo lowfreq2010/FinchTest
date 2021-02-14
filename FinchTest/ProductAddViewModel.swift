@@ -44,10 +44,9 @@ class ProductAddViewModel: NSObject {
     func initModel() {
         self.productModel = ProductAddModel(title: "", description: "", image: "", dataValidationCallback: {[weak self] state in  self?.isDataValid = state}, isDataValid: false)
     }
-
-    func save() -> Void {
-        //TODO: pass all values to model and let it care abount actual saving
-        print("save all values in model")
-        
+    
+    func getNewProduct() -> [String] {
+        let values: [String] = [self.productTitle,self.productDescription,self.productImage]
+        return values
     }
 }

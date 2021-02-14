@@ -72,6 +72,12 @@ class ProductListViewModel: ProductListViewModelProtocol {
         return self.products[row]
     }
     
+    private func saveProducts() -> Void {
+        let dicArray = self.products.map { $0.convertToDictionary() }
+        let encodedJSON = self.convertToJSONString(value: dicArray)
+        self.productModel.saveData(with: encodedJSON ?? "")
+    }
+    
     public func getProductTitle(for indexPath: IndexPath) -> String {
         return self.product(for: indexPath).title
     }
@@ -86,13 +92,20 @@ class ProductListViewModel: ProductListViewModelProtocol {
     
     public func deleteProduct(for row: Int) -> Void {
         if row < self.products.count {
-            
             self.products.remove(at: row)
-            let dicArray = self.products.map { $0.convertToDictionary() }
-            let encodedJSON = self.convertToJSONString(value: dicArray)
-            self.productModel.saveData(with: encodedJSON ?? "")
+            self.saveProducts()
             self.callback()
         }
+    }
+    
+    public func addProduct(_ newProduct: [String]) -> Void {
+        // append new product to ViewModel
+        let product = Product(title: newProduct[0], description: newProduct[1], image: newProduct[2])
+        ImageService.copyImageFromTemp(by: product.image)
+        self.products.append(product)
+        self.saveProducts()
+        self.callback()
+        
     }
     
     private func convertToJSONString(value: Any) -> String? {

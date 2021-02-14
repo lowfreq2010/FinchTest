@@ -113,8 +113,6 @@ class ProductListViewController: UITableViewController {
             self.openDetail(with: segue, sender: sender)
         case "toProductAdd":
             self.addProduct(with: segue, sender: sender)
-        case "unwindToMain":
-            print("unwinded back")
         default: break
         }
     }
@@ -136,10 +134,10 @@ extension ProductListViewController {
     
     
     func addProduct(with segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as! ProductAddViewController
-            if (sender is IndexPath) {
-                //let sentobject = sender as? IndexPath
-            }
+        let vc = segue.destination as! ProductAddViewController
+        vc.completion = {[weak self] newProduct in
+            self?.productListViewModel?.addProduct(newProduct)
+        }
     }
     
     // Unwind segue marker

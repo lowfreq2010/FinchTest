@@ -16,10 +16,18 @@ final class ProductAddViewController: UIViewController {
     }
     
     var productAddViewModel: ProductAddViewModel? = nil
+    var completion: (([String]) -> Void)? = nil
     
     var isViewMovedUp: Bool = false
 
-    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productImage: UIImageView! {
+        didSet {
+            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(generateImage))
+            doubleTap.numberOfTapsRequired = 2
+            productImage.addGestureRecognizer(doubleTap)
+        }
+    }
+    
     @IBOutlet weak var productTitle: UITextField! {
         didSet {
             productTitle.delegate = self
@@ -39,8 +47,9 @@ final class ProductAddViewController: UIViewController {
         
         guard let isDataValid = self.productAddViewModel?.isDataValid else {return}
         if isDataValid {
-            self.productAddViewModel?.save()
-            performSegue(withIdentifier: "unwindToMain", sender: sender)
+            guard let newProduct = self.productAddViewModel?.getNewProduct() else { return}
+            completion?(newProduct)
+            self.navigationController?.popViewController(animated: true)
         } else {
             self.presentAlert()
         }
@@ -59,13 +68,14 @@ final class ProductAddViewController: UIViewController {
         self.setupDismissGestureRecognizer()
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
-        print("unwinding")
-    }
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//
+//        let vc = segue.destination as! ProductListViewController
+//        vc.
+//    }
 }
 
 //MARK: TextField delegate functions
@@ -115,7 +125,7 @@ extension ProductAddViewController: UITextViewDelegate {
 extension ProductAddViewController {
     
     func presentAlert() -> Void {
-        let alert = UIAlertController(title: "Внимание", message: "Пожалуйста, заполните все поля и выберите фото продукта", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Внимание", message: "Пожалуйста, заполните все поля и coздайте фото продукта двойным тапом по дефолтной картинке", preferredStyle: .alert)
         let alertAction = UIAlertAction.init(title: "Закрыть", style: .cancel, handler: nil)
         alert.addAction(alertAction)
         present(alert, animated: true, completion: nil)
@@ -124,5 +134,10 @@ extension ProductAddViewController {
     func setupDismissGestureRecognizer () -> Void {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func generateImage() {
+        self.productAddViewModel?.productImage = ImageService.generateTempImage(width: 512, height: 512, completion: {[weak self] image in self?.productImage.image = image})
+        
     }
 }
