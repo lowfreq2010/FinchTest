@@ -7,16 +7,10 @@
 
 import UIKit
 
-class ProductAddViewController: UIViewController {
+final class ProductAddViewController: UIViewController {
     var statusBarOrientation: UIInterfaceOrientation? {
         get {
-            guard let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation else {
-                #if DEBUG
-                fatalError("No UIInterfaceOrientation from a valid windowScene")
-                #else
-                return nil
-                #endif
-            }
+            guard let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation else {return nil}
             return orientation
         }
     }
@@ -26,13 +20,21 @@ class ProductAddViewController: UIViewController {
     var isViewMovedUp: Bool = false
 
     @IBOutlet weak var productImage: UIImageView!
-    @IBOutlet weak var productTitle: UITextField!
+    @IBOutlet weak var productTitle: UITextField! {
+        didSet {
+            productTitle.delegate = self
+            
+        }
+    }
     @IBOutlet weak var productDescription: UITextView! {
         didSet {
             productDescription.layer.cornerRadius = 5
             productDescription.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
             productDescription.layer.borderWidth = 0.5
             productDescription.clipsToBounds = true
+            productDescription.delegate = self
+            
+            
         }
     }
     
@@ -49,8 +51,6 @@ class ProductAddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupDismissGestureRecognizer()
-        self.productTitle.delegate = self
-        self.productDescription.delegate = self
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
