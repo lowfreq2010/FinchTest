@@ -137,6 +137,7 @@ extension ProductAddViewController {
     }
     
     @objc func generateImage() {
+        
         self.productAddViewModel?.productImage = ImageService.generateTempImage(width: 512, height: 512, completion: {[weak self] image in self?.productImage.image = image})
         
     }

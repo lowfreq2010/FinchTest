@@ -30,7 +30,6 @@ class ProductListViewModel: ProductListViewModelProtocol {
     
     // MARK: UITableview delegate/source
     func numberOfSections()->Int {
-        // return self.selectedCurrencies.count == 0 ? 1 : 2
         return 1
     }
     
@@ -57,7 +56,6 @@ class ProductListViewModel: ProductListViewModelProtocol {
         // ask model to load data from NSUD and prepare data for view
         self.productModel.getData({[unowned self] productList in
             // decode json to array of products
-            
             self.decodeJSON(from: productList)
             // call binding callback to update the view accordingly
             self.callback()
