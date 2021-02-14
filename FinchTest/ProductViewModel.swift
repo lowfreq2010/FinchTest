@@ -28,8 +28,6 @@ class ProductListViewModel: ProductListViewModelProtocol {
         self.productModel = model
     }
     
-    // MARK: Service class objects
-    
     // MARK: UITableview delegate/source
     func numberOfSections()->Int {
         // return self.selectedCurrencies.count == 0 ? 1 : 2
@@ -78,6 +76,8 @@ class ProductListViewModel: ProductListViewModelProtocol {
         self.productModel.saveData(with: encodedJSON ?? "")
     }
     
+    //MARK: Public functions
+    
     public func getProductTitle(for indexPath: IndexPath) -> String {
         return self.product(for: indexPath).title
     }
@@ -107,7 +107,10 @@ class ProductListViewModel: ProductListViewModelProtocol {
         self.callback()
         
     }
-    
+}
+
+//MARK: helper functions for json processing
+extension ProductListViewModel {
     private func convertToJSONString(value: Any) -> String? {
         if JSONSerialization.isValidJSONObject(value) {
             do{
