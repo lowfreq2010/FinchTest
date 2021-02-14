@@ -8,15 +8,6 @@
 import Foundation
 import UIKit
 
-extension UIColor {
-    static var random: UIColor {
-        return UIColor(red: .random(in: 0...1),
-                       green: .random(in: 0...1),
-                       blue: .random(in: 0...1),
-                       alpha: .random(in: 0...1))
-    }
-}
-
 final class ImageService: NSObject {
     
     //MARK: Private API methods
@@ -54,16 +45,6 @@ final class ImageService: NSObject {
         try? imageData?.write(to: filename)
     }
     
-    private static func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    private static func getTempDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
     //MARK: Public API methods
     
     public static func generateRandomImage(with name: String, width: Int, height: Int) -> Void {
@@ -95,14 +76,36 @@ final class ImageService: NSObject {
         let documentPath = getDocumentsDirectory()
         let tempPath = getTempDirectory()
         let imageDestinationURL = URL(fileURLWithPath: documentPath.path).appendingPathComponent("\(name).png")
-
         let imageOriginURL = URL(fileURLWithPath: tempPath.path).appendingPathComponent("\(name).png")
-
         let fileExist = FileManager.default.fileExists(atPath: imageOriginURL.path)
         if fileExist {
-            try? FileManager.default.copyItem(at: imageOriginURL, to: imageDestinationURL)
-            try? FileManager.default.removeItem(atPath: imageOriginURL.path)
+            DispatchQueue.global().async {
+                try? FileManager.default.copyItem(at: imageOriginURL, to: imageDestinationURL)
+                try? FileManager.default.removeItem(atPath: imageOriginURL.path)
+            }
+
         }
 
+    }
+}
+
+extension ImageService {
+    private static func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    private static func getTempDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+}
+
+extension UIColor {
+    static var random: UIColor {
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha: .random(in: 0...1))
     }
 }

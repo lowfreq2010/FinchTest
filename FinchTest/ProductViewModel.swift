@@ -60,7 +60,7 @@ class ProductListViewModel: ProductListViewModelProtocol {
         self.productModel.getData({[unowned self] productList in
             // decode json to array of products
             
-            self.products = self.decodeJSON(from: productList)
+            self.decodeJSON(from: productList)
             // call binding callback to update the view accordingly
             self.callback()
             
@@ -121,12 +121,10 @@ class ProductListViewModel: ProductListViewModelProtocol {
         return nil
     }
     
-    private func decodeJSON(from json: String) -> [Product] {
-        var result: [Product] = [Product(title: "test", description: "test", image: "test")]
+    private func decodeJSON(from json: String)  {
         if let productsData = json.data(using: .utf8),
            let productsArray: [Product] = try? JSONDecoder().decode([Product].self, from: productsData) {
-            result = productsArray
+            self.products = productsArray
         }
-        return result
     }
 }
