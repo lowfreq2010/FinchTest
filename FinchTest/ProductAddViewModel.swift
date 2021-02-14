@@ -11,7 +11,8 @@ import Foundation
 import UIKit
 
 class ProductAddViewModel: NSObject {
-    private var productModel: ProductAddModel
+    private var productModel: ProductAddModel = ProductAddModel()
+    var isDataValid: Bool = false
     
     var productTitle: String {
         get {
@@ -40,21 +41,13 @@ class ProductAddViewModel: NSObject {
         }
     }
     
-    init(with model:ProductAddModel) {
-        self.productModel = model
+    func initModel() {
+        self.productModel = ProductAddModel(title: "", description: "", image: "", dataValidationCallback: {[weak self] state in  self?.isDataValid = state}, isDataValid: false)
     }
-    
-    
-    func validateFields() -> Bool {
-        var retVal = true
-        if self.productModel.isAllEmpty() {
-            retVal = false
-        }
-        return retVal
-    }
-    
+
     func save() -> Void {
         //TODO: pass all values to model and let it care abount actual saving
+        print("save all values in model")
         
     }
 }

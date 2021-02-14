@@ -152,6 +152,9 @@
                                                 <rect key="frame" x="81.5" y="0.0" width="206.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="producttitleChanged:" destination="dE6-FZ-1u8" eventType="editingChanged" id="b8S-z9-vnY"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>

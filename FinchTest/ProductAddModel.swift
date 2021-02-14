@@ -8,19 +8,39 @@
 import Foundation
 
 struct ProductAddModel {
-    var title: String
-    var description: String
-    var image: String
+    var title: String = "" {
+        didSet {
+            validateInput()
+        }
+    }
+    var description: String = "" {
+        didSet {
+            validateInput()
+        }
+    }
+    var image: String = "" {
+        didSet {
+            validateInput()
+        }
+    }
+    var dataValidationCallback: ((Bool) -> ())? = nil
+
+    var isDataValid: Bool? {
+        didSet {
+            if oldValue != isDataValid {
+                guard let dataValidationCallback = dataValidationCallback else {return}
+                dataValidationCallback(isDataValid ?? false)
+            }
+        }
+    }
 }
 
 extension ProductAddModel {
-    func isAllEmpty() -> Bool {
-        var retVal  = false
-        let checkString: String = self.title.trimmingCharacters(in: .whitespacesAndNewlines) + self.description.trimmingCharacters(in: .whitespacesAndNewlines) + self.image.trimmingCharacters(in: .whitespacesAndNewlines)
-        if checkString == "" {
-            retVal = true
-        }
-        return retVal
+    
+    mutating func validateInput() {
+        let trimmedData = [title, description, image].map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})
+        let charsCount = trimmedData.reduce(0, {(result: Int, nextItem: String) -> Int in result + nextItem.count})
+        self.isDataValid = (charsCount == 0) ? true : false
     }
 }
 

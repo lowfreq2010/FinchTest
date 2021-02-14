@@ -15,7 +15,7 @@ final class ProductAddViewController: UIViewController {
         }
     }
     
-    let productAddViewModel: ProductAddViewModel = ProductAddViewModel(with: ProductAddModel(title: "", description: "", image: ""))
+    var productAddViewModel: ProductAddViewModel? = nil
     
     var isViewMovedUp: Bool = false
 
@@ -23,7 +23,6 @@ final class ProductAddViewController: UIViewController {
     @IBOutlet weak var productTitle: UITextField! {
         didSet {
             productTitle.delegate = self
-            
         }
     }
     @IBOutlet weak var productDescription: UITextView! {
@@ -33,26 +32,33 @@ final class ProductAddViewController: UIViewController {
             productDescription.layer.borderWidth = 0.5
             productDescription.clipsToBounds = true
             productDescription.delegate = self
-            
-            
         }
     }
     
     @IBAction func saveProduct(_ sender: UIBarButtonItem) {
-
-        if self.productAddViewModel.validateFields() {
-            self.productAddViewModel.save()
+        
+        guard let isDataValid = self.productAddViewModel?.isDataValid else {return}
+        if isDataValid {
+            self.productAddViewModel?.save()
             performSegue(withIdentifier: "unwindToMain", sender: sender)
         } else {
             self.presentAlert()
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupDismissGestureRecognizer()
+    @IBAction func producttitleChanged(_ sender: UITextField) {
+        self.productAddViewModel?.productTitle = sender.text ?? ""
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.productAddViewModel = ProductAddViewModel()
+        self.productAddViewModel?.initModel()
+        
+        self.setupDismissGestureRecognizer()
+    }
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -97,6 +103,11 @@ extension ProductAddViewController: UITextViewDelegate {
             self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
         }
         self.isViewMovedUp = up
+    }
+    
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        guard let text = textView.text else {return}
+        self.productAddViewModel?.productDescription = text
     }
 }
 
