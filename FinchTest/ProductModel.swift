@@ -25,24 +25,15 @@ class ProductModel {
     
     // MARK: Private properties
     private let nsudProcessor: ProductListNSUD = ProductListNSUD(with: "productList")
-    
-    
-    // MARK: Public properties
 
+    // MARK: Public properties
     
     // MARK: Class initializers and methods
-    
-    // fetch all currency data
+    // fetch all data
     func getData(_ completion: @escaping (String) -> ()) {
         // try to restore saved products
-        let restoredData = self.nsudProcessor.restore()
-        // if nothing ia saved yet then fall back to test set of data
-//        if !(restoredData == "") {
-//            let savedProducts = self.generateTestData()
-//            savedProducts = restoredData
-//        }
+        guard let restoredData = self.nsudProcessor.restore() else { return}
         completion(restoredData)
-        
     }
     
     func generateTestData() -> String {
@@ -58,7 +49,7 @@ class ProductModel {
     
     func saveData(with value: String) -> Void {
         self.nsudProcessor.storedValue = value
-        self.nsudProcessor.save()
+        try? self.nsudProcessor.save()
     }
 }
 
