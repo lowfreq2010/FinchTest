@@ -9,7 +9,6 @@ import UIKit
 
 
 typealias Storeable = String
-typealias StoreableData = Data
 
 protocol PersistentStoreable: class {
     var storeObj: Any? {get}
@@ -29,12 +28,12 @@ final class ProductListNSUD: PersistentStoreable {
     }
     
     func save() throws {
-        let store = self.storeObj as! UserDefaults
+        guard let store = self.storeObj as? UserDefaults else {return}
         store.setValue(self.storedValue, forKey: self.key)
     }
     
     func restore() -> Storeable? {
-        let store = self.storeObj as! UserDefaults
+        guard let store = self.storeObj as? UserDefaults else {return ""}
         guard let retValue = store.object(forKey: self.key) as? String else {return ""}
         return retValue
     }
